@@ -2,11 +2,34 @@
   "radio": [
     {
       "name": "Radio France",
-      "inter_link": "#RadioFrance"
+      "inter_link": "#RadioFrance",
+      "img":"https://lh3.googleusercontent.com/-BKjPa6KhWks/AAAAAAAAAAI/AAAAAAAAAI4/MziciOJF59s/s0-c-k-no-ns/photo.jpg"
     },
     {
       "name": "Virgin Radio",
-      "inter_link": "#VirginRadio"
+      "inter_link": "#VirginRadio",
+      "img":"http://www.virginradio.fr/default/modules/network/images/logo/white_full/virginradio.png"
+    },
+    {
+      "name": "NRJ",
+      "inter_link": "#Nrj",
+      "img":"http://www.nrj.fr/img/logo-nrj.svg"
+    },
+    {
+      "name": "Europe 1",
+      "inter_link": "#VirginRadio",
+      "img":"http://cdn1-europe1.new2.ladmedia.fr/bundles/europe1front/images/logo_europe1.png"
+    },
+    {
+      "name": "RTL",
+      "inter_link": "#RTL",
+      "img":"http://coulissesmedias.com/wp-content/uploads/RTL-LOGO.jpg"
+    },
+    {
+      "name": "RTL2",
+      "inter_link": "#RTL2",
+      "img":"http://api.my-radios.com/images/thumb.php?countryCode=FR&name=RTL2.png&size=200"
     }
+
   ]
 }

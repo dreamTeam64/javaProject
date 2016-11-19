@@ -20,17 +20,30 @@ function getJSON(name){
 
 function dataHome () {
   var dataHome;
+  var encartContainer;
+
+  encartContainer = document.getElementById('encart-container');
+
+  console.log(encartContainer);
 
   getJSON("home").then(function(response){
     for (var i = 0; i < response.radio.length; i++) {
+      var encart,img;
       console.log(response.radio[i].name);
+      encart = document.createElement('div');
+      encart.id = "encart-radio";
+      encart.innerHTML = response.radio[i].name + "</br>";
+      img = document.createElement('img');
+      img.height = 100;
+      img.width = 100;
+      img.src = response.radio[i].img;
+      encart.appendChild(img);
+      console.log(encart);
+      encartContainer.appendChild(encart);
     }
   },function(Error){
     console.log("Error");
   });
-
-
-
 }
 
 function loadPage(name){
