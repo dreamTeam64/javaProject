@@ -5,6 +5,7 @@ function createPageFromTemplate(template) {
   console.log(template);
 
   container = document.getElementById('container');
+  container.innerHTML = "";
   toInsert = template.getElementById('main');
   container.appendChild(toInsert);
 }
@@ -35,5 +36,9 @@ window.onload = function () {
   if (window.location.hash === '') {
     window.location.hash = "home";
   }
+  loadTemplate(window.location.hash);
+};
+
+window.onhashchange = function () {
   loadTemplate(window.location.hash);
 };
