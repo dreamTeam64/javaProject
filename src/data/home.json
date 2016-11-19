@@ -1,12 +1,12 @@
 {
-  "radio" : [
+  "radio": [
     {
-      "name" : "Radio France",
-      "inter_link" : "#RadioFrance"
+      "name": "Radio France",
+      "inter_link": "#RadioFrance"
     },
     {
-      "name" : "Virgin Radio",
-      "inter_link" : "#VirginRadio"
+      "name": "Virgin Radio",
+      "inter_link": "#VirginRadio"
     }
   ]
 }

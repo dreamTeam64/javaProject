@@ -1,4 +1,4 @@
-function createPageFromTemplate(template) {
+function createPageFromTemplate(template,name) {
   var container;
   var toInsert;
 
@@ -8,6 +8,7 @@ function createPageFromTemplate(template) {
   container.innerHTML = "";
   toInsert = template.getElementById('main');
   container.appendChild(toInsert);
+  loadPage(name);
 }
 
 function loadTemplate(name){
@@ -24,7 +25,7 @@ function loadTemplate(name){
     if(req.status === 200) {
       var template = req.responseXML;
       console.log(template);
-      createPageFromTemplate(template);
+      createPageFromTemplate(template,name);
     } else {
       console.log("Error"+ req.status);
     }
