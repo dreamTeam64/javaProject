@@ -1,3 +1,9 @@
+var getLocation = function (href) {
+  var l = document.createElement('a');
+  l.href = href;
+  return l;
+};
+
 function createPageFromTemplate(template,name) {
   var container;
   var toInsert;
@@ -41,5 +47,6 @@ window.onload = function () {
 };
 
 window.onhashchange = function () {
+  console.log(window.location.hash);
   loadTemplate(window.location.hash);
 };

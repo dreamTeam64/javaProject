@@ -28,16 +28,19 @@ function dataHome () {
 
   getJSON("home").then(function(response){
     for (var i = 0; i < response.radio.length; i++) {
-      var encart,img;
+      var encart,img,link;
       console.log(response.radio[i].name);
       encart = document.createElement('div');
       encart.id = "encart-radio";
       encart.innerHTML = response.radio[i].name + "</br>";
+      link = document.createElement('a');
       img = document.createElement('img');
       img.height = 100;
       img.width = 100;
       img.src = response.radio[i].img;
-      encart.appendChild(img);
+      link.href = response.radio[i].inter_link;
+      link.appendChild(img);
+      encart.appendChild(link);
       console.log(encart);
       encartContainer.appendChild(encart);
     }
