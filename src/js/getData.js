@@ -49,11 +49,26 @@ function dataHome () {
   });
 }
 
+function obtenirParametre (sVar) {
+  return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
+function dataRadio () {
+  var radio;
+
+  radio = obtenirParametre("radio");
+  console.log(radio);
+}
+
 function loadPage(name){
   switch (name) {
     case '#home':
       console.log("va pour dataHome");
       dataHome();
+      break;
+    case '#radio':
+      console.log("va pour dataRadio");
+      dataRadio();
       break;
     default:
       console.log("humhum !");
