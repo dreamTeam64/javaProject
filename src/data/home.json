@@ -7,27 +7,27 @@
     },
     {
       "name": "Virgin Radio",
-      "inter_link": "#radio?VirginRadio",
+      "inter_link": "?radio=VirginRadio#radio",
       "img":"http://www.virginradio.fr/default/modules/network/images/logo/white_full/virginradio.png"
     },
     {
       "name": "NRJ",
-      "inter_link": "#radio?Nrj",
+      "inter_link": "?radio=Nrj#radio",
       "img":"http://www.nrj.fr/img/logo-nrj.svg"
     },
     {
       "name": "Europe 1",
-      "inter_link": "#radio?VirginRadio",
+      "inter_link": "?radio=Europe1#radio",
       "img":"http://cdn1-europe1.new2.ladmedia.fr/bundles/europe1front/images/logo_europe1.png"
     },
     {
       "name": "RTL",
-      "inter_link": "#radio?RTL",
+      "inter_link": "?radio=RTL#radio",
       "img":"http://coulissesmedias.com/wp-content/uploads/RTL-LOGO.jpg"
     },
     {
       "name": "RTL2",
-      "inter_link": "#radio?RTL2",
+      "inter_link": "?radio=RTL2#radio",
       "img":"http://api.my-radios.com/images/thumb.php?countryCode=FR&name=RTL2.png&size=200"
     }
   ]
