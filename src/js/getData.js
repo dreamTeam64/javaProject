@@ -33,6 +33,7 @@ function dataHome () {
       encart = document.createElement('div');
       encart.id = "encart-radio";
       encart.innerHTML = response.radio[i].name + "</br>";
+      encart.className = "col-md-6 .col-sm-3";
       link = document.createElement('a');
       img = document.createElement('img');
       img.height = 100;
@@ -49,15 +50,60 @@ function dataHome () {
   });
 }
 
+function dataEmission () {
+  var emission;
+  var radio;
+  var encartContainer;
+
+  radio = obtenirParametre("radio");
+  emission = obtenirParametre("emission");
+
+  console.log(radio);
+  console.log(emission);
+
+  getJSON("radio/"+radio).then(function(response){
+    console.log(response.rss[emission]);
+
+  },function(Error){
+    console.log("erreur !");
+  });
+}
+
 function obtenirParametre (sVar) {
   return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
 
 function dataRadio () {
   var radio;
+  var encartContainer;
 
+  encartContainer = document.getElementById('encart-container');
   radio = obtenirParametre("radio");
   console.log(radio);
+
+  getJSON("radio/"+radio).then(function(response){
+    for (var i = 0; i < response.emission.length; i++) {
+      console.log(response.emission[i].name);
+      var encart,img,link;
+      console.log(response.emission[i].name);
+      encart = document.createElement('div');
+      encart.id = "encart-radio";
+      encart.innerHTML = response.emission[i].name + "</br>";
+      encart.className = "col-md-6 .col-sm-3";
+      link = document.createElement('a');
+      img = document.createElement('img');
+      img.height = 100;
+      img.width = 100;
+      img.src = response.emission[i].img;
+      link.href = response.emission[i].inter_link;
+      link.appendChild(img);
+      encart.appendChild(link);
+      console.log(encart);
+      encartContainer.appendChild(encart);
+    }
+  },function(Error){
+    console.log("error");
+  });
 }
 
 function loadPage(name){
@@ -69,6 +115,10 @@ function loadPage(name){
     case '#radio':
       console.log("va pour dataRadio");
       dataRadio();
+      break;
+    case '#emission':
+      console.log("va pour dataEmission");
+      dataEmission();
       break;
     default:
       console.log("humhum !");

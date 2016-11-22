@@ -1,9 +1,28 @@
 {
   "emission":[
     {
-      "name":"",
-      "inter_link":"",
-      "img":""
+      "name":"rdv avec X",
+      "inter_link":"?emission=rdvAvecX&radio=radioFrance#emission",
+      "img":"https://www.franceinter.fr/img/ximg_defaut_highlight_live.png.pagespeed.ic.BjQgO30G49.png",
+      "rss_link":""
+    },
+    {
+      "name":"Mashup de Willax",
+      "inter_link":"?emission=MashupDeWillax&radio=radioFrance#emission",
+      "img":"http://www.mouv.fr/sites/default/files/imagecache/podcast_liste/2016/09/05/262605/willaxxx.jpg",
+      "rss_link":""
+    },
+    {
+      "name":"Breizh positive",
+      "inter_link":"?emission=BreizhPositive&radio=radioFrance#emission",
+      "img":"https://applipodcast.radiofrance.fr/image/resize.php?image=http://media.radiofrance-podcast.net/podcast09/RF_OMM_0000013809_ITE.jpg",
+      "rss_link":"http://radiofrance-podcast.net/podcast09/rss_16456.xml"
     }
-  ]
+  ],
+
+  "rss":{
+    "rdvAvecX":"http://radiofrance-podcast.net/podcast09/rss_14726.xml",
+    "MashupDeWillax":"",
+    "BreizhPositive":""
+  }
 }
