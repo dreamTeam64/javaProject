@@ -85,7 +85,17 @@ function dataEmission () {
   getJSON("radio/"+radio).then(function(response){
     console.log(response.rss[emission]);
     url = response.rss[emission];
-    getXML(url);
+    getXML(url).then(function(response){
+      var tabItem;
+
+      tabItem = response.getElementsByTagName("item");
+      for (var i = 0; i < tabItem.length; i++) {
+        console.log(tabItem[i].childNodes[11].outerHTML);
+      }
+      console.log(tabItem);
+    },function(Error) {
+      console.log(Error);
+    });
   },function(Error){
     console.log("erreur !");
   });
