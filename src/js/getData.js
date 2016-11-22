@@ -18,6 +18,26 @@ function getJSON(name){
   });
 }
 
+function getXML(url){
+  return new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open("GET","https://jsonp.afeld.me/?url="+url,true);
+    req.onerror = function () {
+      console.log("erreur de chargement du fichier xml");
+    };
+    req.onload = function(){
+      if(req.status === 200) {
+        var data = req.responseXML;
+        console.log(data);
+        resolve(data);
+      } else {
+        reject(Error("Error"+ req.status));
+      }
+    };
+    req.send();
+  });
+}
+
 function dataHome () {
   var dataHome;
   var encartContainer;
@@ -54,6 +74,7 @@ function dataEmission () {
   var emission;
   var radio;
   var encartContainer;
+  var url;
 
   radio = obtenirParametre("radio");
   emission = obtenirParametre("emission");
@@ -63,7 +84,8 @@ function dataEmission () {
 
   getJSON("radio/"+radio).then(function(response){
     console.log(response.rss[emission]);
-
+    url = response.rss[emission];
+    getXML(url);
   },function(Error){
     console.log("erreur !");
   });
