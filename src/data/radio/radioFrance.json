@@ -22,7 +22,7 @@
 
   "rss":{
     "rdvAvecX":"http://radiofrance-podcast.net/podcast09/rss_14726.xml",
-    "MashupDeWillax":"",
-    "BreizhPositive":""
+    "MashupDeWillax":"http://radiofrance-podcast.net/podcast09/rss_16769.xml",
+    "BreizhPositive":"http://radiofrance-podcast.net/podcast09/rss_16456.xml"
   }
 }
