@@ -52,8 +52,8 @@ function dataHome () {
       console.log(response.radio[i].name);
       encart = document.createElement('div');
       encart.id = "encart-radio";
-      encart.innerHTML = response.radio[i].name + "</br>";
-      encart.className = "col-md-6 .col-sm-3";
+      encart.innerHTML = "<h5>"+response.radio[i].name + "</h5></br>";
+      encart.className = "col-md-2 .col-sm-3";
       link = document.createElement('a');
       img = document.createElement('img');
       img.height = 100;

@@ -8,6 +8,14 @@
 background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
 }
 
+#rss_feed{
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+}
+
 #encart-container{
   padding-top: 50px;
   text-align: center;
