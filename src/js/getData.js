@@ -87,10 +87,22 @@ function dataEmission () {
     url = response.rss[emission];
     getXML(url).then(function(response){
       var tabItem;
+      var tableauHTML = document.getElementById("tableau");
 
       tabItem = response.getElementsByTagName("item");
       for (var i = 0; i < tabItem.length; i++) {
-        console.log(tabItem[i].childNodes[11].outerHTML);
+        var tbody,tr,td,td_2;
+        console.log(tabItem[i].childNodes[1].innerHTML);
+        tr = document.createElement('tr');
+        td = document.createElement('td');
+        td_2 = document.createElement('td');
+        tbody = document.createElement('tbody');
+        td_2.innerHTML = i;
+        td.innerHTML = tabItem[i].childNodes[1].innerHTML;
+        tr.appendChild(td_2);
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+        tableauHTML.appendChild(tbody);
       }
       console.log(tabItem);
     },function(Error) {
