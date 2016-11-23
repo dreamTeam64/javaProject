@@ -1,0 +1,14 @@
+{
+  "emission":[
+    {
+      "name":"son pop rock",
+      "inter_link":"?emission=popRock&radio=RTL2#emission",
+      "img":"http://media.rtl2.fr/online/image/2016/0829/7784648722_pop-rock-station.jpg",
+      "rss_link":""
+    }
+  ],
+
+  "rss":{
+    "popRock":"http://www.rtl2.fr/podcast/pop-rock-station.xml"
+  }
+}

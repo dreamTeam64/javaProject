@@ -1,0 +1,14 @@
+{
+  "emission":[
+    {
+      "name":"les grosses têtes",
+      "inter_link":"?emission=grosseTete&radio=RTL#emission",
+      "img":"http://media.rtl.fr/online/image/2014/0819/7773790654_les-grosses-tetes.jpg",
+      "rss_link":""
+    }
+  ],
+
+  "rss":{
+    "grosseTete":"http://www.rtl.fr/podcast/les-grosses-tetes.xml"
+  }
+}
