@@ -36,7 +36,7 @@ function userRss () {
             td_2 = document.createElement('td');
             td_3 = document.createElement('td');
             tbody = document.createElement('tbody');
-            td_2.innerHTML = i;
+            td_2.innerHTML = (tabItem[i].getElementsByTagName('pubDate')[0]).innerHTML;
             td.innerHTML = tabItem[i].getElementsByTagName('title')[0].innerHTML;
             td_3.appendChild(media);
             tr.appendChild(td_2);
