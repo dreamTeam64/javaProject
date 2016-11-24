@@ -32,7 +32,12 @@ background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
 #encart-radio{
 
   display: block;
+}
 
+.table_feed{
+  height: 400px;
+  overflow: scroll;
+  display: block;
 }
 
 footer{

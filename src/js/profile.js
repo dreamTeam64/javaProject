@@ -20,6 +20,7 @@ function userRss () {
 
             audio = document.createElement('AUDIO');
             audio.src = tabItem[i].getElementsByTagName('enclosure')[0].getAttribute('url');
+            console.log(tabItem[i].getElementsByTagName('enclosure')[0].getAttribute('type'));
             audio.controls="controls";
             audio.preload = "false";
             tr = document.createElement('tr');

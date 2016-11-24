@@ -56,8 +56,8 @@ function dataHome () {
       encart.className = "col-md-2 .col-sm-3";
       link = document.createElement('a');
       img = document.createElement('img');
-      img.height = 100;
-      img.width = 100;
+      img.height = 40;
+      img.width = 40;
       img.src = response.radio[i].img;
       link.href = response.radio[i].inter_link;
       link.appendChild(img);
