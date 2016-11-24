@@ -4,25 +4,39 @@
   </div>
   <div class="container">
     <h3>Votre recherche !</h3>
-    <div id="rss_feed">
-      <div id="recherche">
-        <form class="col-md-6">
+    <div id="rss_feed" class="row">
+      <div id="recherche" class="col-md-6">
+        <form>
           <div class="form-groupe">
             <label for="rssInput">Votre lien rss:</label>
             <input type="text" class="form-control" name="rssResearch" id="rss_link" value="">
           </div>
           <br>
-          <button type="submit" class="btn btn-default">Podcaster</button>
+          <input type="button" class="btn btn-default" id="sendRssLink" value="podcaster"></input>
         </form>
+        <h3>Notre Selection !</h3>
+        </div>
 
+        <div id="encart-container" class="row">
 
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped table-hover" id="tableau">
+          <tr>
+            <td>
+              date
+            </td>
+            <td>
+              nom
+            </td>
+            <td>
+              player
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
 
-    <h3>Notre Selection !</h3>
-    </div>
 
-    <div id="encart-container" class="row">
-
-    </div>
 </div>

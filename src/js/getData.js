@@ -64,6 +64,7 @@ function dataHome () {
       encart.appendChild(link);
       console.log(encart);
       encartContainer.appendChild(encart);
+      userRss();
     }
   },function(Error){
     console.log("Error");
