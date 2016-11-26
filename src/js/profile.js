@@ -9,7 +9,7 @@ function userRss () {
     button.addEventListener("click",function(){
       var flux;
       var tabItem;
-      var tableauHTML = document.getElementById("tableau");
+      var containerRssFeed = document.getElementById("rssFeed");
 
       flux = Object.create(rss);
       console.log(flux);
@@ -18,9 +18,10 @@ function userRss () {
       flux.getItems(function(tabItem){
         console.log(tabItem);
         for (var i = 0; i < tabItem.length; i++) {
-          var tbody,tr,td,td_2,td_3;
+          var media,title,description,division,date,hr;
           var item = Object.create(Item);
           item.init(tabItem[i]);
+
           if (item.getEnclosureType() == "audio/mpeg") {
             media = document.createElement('AUDIO');
             media.controls="controls";
@@ -29,25 +30,26 @@ function userRss () {
             media = document.createElement('img');
             media.width = 100;
             media.height = 100;
+          } else if (item.getEnclosureType()== "video/mp4"){
+            media = document.createElement('video');
           }
-          media.src = item.getEnclosureContent();
-          tr = document.createElement('tr');
-          td = document.createElement('td');
-          td_2 = document.createElement('td');
-          td_3 = document.createElement('td');
-          tbody = document.createElement('tbody');
-          td_2.innerHTML = item.getPublicationDate();
-          td.innerHTML = item.getTitle();
-          td_3.appendChild(media);
-          tr.appendChild(td_2);
-          tr.appendChild(td);
-          tr.appendChild(td_3);
-          console.log(media);
 
-          tbody.appendChild(tr);
-          tableauHTML.appendChild(tbody);
+          division = document.createElement('div');
+          title = document.createElement('h3');
+          description = document.createElement('p');
+          date = document.createElement('p');
+          hr = document.createElement('hr');
+
+          title.innerHTML = item.getTitle();
+          date.innerHTML = item.getPublicationDate();
+          description.innerHTML = item.getDescription();
+          division.appendChild(title);
+          division.appendChild(date);
+          division.appendChild(description);
+          division.appendChild(media);
+          division.appendChild(hr);
+          containerRssFeed.appendChild(division);
         }
-        console.log(tabItem);
       });
     });
   }
