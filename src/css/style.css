@@ -41,6 +41,15 @@ background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
   display: block;
 }
 
+/*#documentation{
+  left;
+}*/
+
+#Retour{
+  position: relative;
+  right: 100px;
+}
+
 #rssFeed{
   height: 420px;
   overflow: scroll;
