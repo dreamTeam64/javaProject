@@ -34,6 +34,15 @@ background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
   display: block;
 }
 
+/*#documentation{
+  left;
+}*/
+
+#Retour{
+  position: relative;
+  right: 100px;
+}
+
 .table_feed{
   height: 400px;
   overflow: scroll;
