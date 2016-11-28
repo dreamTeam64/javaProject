@@ -7,12 +7,17 @@ html,body{
 
 .menu{
   width: 100%;
-  height: 150px;
+  height: 10%;
   overflow: hidden;
   position: relative;
   text-align: center;
   background-color: #29b6f6;
 background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
+}
+
+#container{
+  height: 80%;
+  overflow: scroll;
 }
 
 #rss_feed{
@@ -60,8 +65,8 @@ footer{
   background-color: #29b6f6;
   background-image: linear-gradient(to top left, #E1F5FE 0%, #3498db 100%);
   display: block;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 80px;
+  height: 10%;
 }
