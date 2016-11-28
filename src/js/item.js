@@ -15,6 +15,6 @@ var Item = {
     return (this.item).getElementsByTagName('pubDate')[0].innerHTML;
   },
   getDescription: function(){
-    return (this.item).getElementsByTagName('description')[0].innerHTML;
+    return (this.item).getElementsByTagName('description')[0];
   }
 };
