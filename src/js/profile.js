@@ -21,28 +21,33 @@ function userRss () {
             var media,title,description,division,date,hr;
             var item = Object.create(Item);
             item.init(tabItem[i]);
+            media = document.createElement('button');
+            media.class = "btn btn-default";
+            media.innerHTML = "Ouvrir";
+            media.url = item.getEnclosureType();
 
-            if (item.getEnclosureType() == "audio/mpeg") {
-              media = document.createElement('AUDIO');
-              media.controls="controls";
-              media.preload = "false";
-              media.src = item.getEnclosureContent();
-            } else if (item.getEnclosureType() == "image/jpg" || item.getEnclosureType() == "image/jpeg"){
-              media = document.createElement('img');
-              media.width = 100;
-              media.height = 100;
-              media.src = item.getEnclosureContent();
-            } else if (item.getEnclosureType()== "video/x-m4v"){
-              var source;
-              media = document.createElement('video');
-              media.controls="controls";
-              media.width = 400;
-              media.height = 222;
-              source = document.createElement('source');
-              source.src = item.getEnclosureContent();
-              source.type = item.getEnclosureType();
-              media.appendChild(source);
-            }
+            // if (item.getEnclosureType() == "audio/mpeg") {
+            //
+            //   media = document.createElement('AUDIO');
+            //   media.controls="controls";
+            //   media.preload = "false";
+            //   media.src = item.getEnclosureContent();
+            // } else if (item.getEnclosureType() == "image/jpg" || item.getEnclosureType() == "image/jpeg"){
+            //   media = document.createElement('img');
+            //   media.width = 100;
+            //   media.height = 100;
+            //   media.src = item.getEnclosureContent();
+            // } else if (item.getEnclosureType()== "video/x-m4v"){
+            //   var source;
+            //   media = document.createElement('video');
+            //   media.controls="controls";
+            //   media.width = 400;
+            //   media.height = 222;
+            //   source = document.createElement('source');
+            //   source.src = item.getEnclosureContent();
+            //   source.type = item.getEnclosureType();
+            //   media.appendChild(source);
+            // }
 
             division = document.createElement('div');
             title = document.createElement('h3');
