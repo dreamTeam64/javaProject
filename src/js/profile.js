@@ -7,50 +7,64 @@ function userRss () {
     console.log(button);
 
     button.addEventListener("click",function(){
-        console.log("wesh");
-        getXML(link.value).then(function(response){
-          var tabItem;
-          var tableauHTML = document.getElementById("tableau");
-          tabItem = response.getElementsByTagName("item");
-          for (var i = 0; i < tabItem.length; i++) {
-            var tbody,tr,td,td_2,td_3,media,type;
+      var flux;
+      var tabItem;
+      var containerRssFeed = document.getElementById("rssFeed");
 
-            //console.log(tabItem[i].childNodes[1].innerHTML);
-            //console.log(tabItem[i].childNodes[11].getAttribute('url'));
-            console.log(tabItem[i].getElementsByTagName('enclosure')[0].getAttribute('type'));
-            type = tabItem[i].getElementsByTagName('enclosure')[0].getAttribute('type');
-            if (type == "audio/mpeg") {
-              console.log("met de l'audio gros");
+      flux = Object.create(rss);
+      console.log(flux);
+      flux.init(link.value);
+      flux.getVersion(function(version){
+        flux.getItems(function(tabItem){
+          console.log(tabItem);
+          for (var i = 0; i < tabItem.length; i++) {
+            var media,title,description,division,date,hr;
+            var item = Object.create(Item);
+            item.init(tabItem[i]);
+
+            if (item.getEnclosureType() == "audio/mpeg") {
               media = document.createElement('AUDIO');
               media.controls="controls";
               media.preload = "false";
-            } else if (type == "image/jpg" || type == "image/jpeg"){
+              media.src = item.getEnclosureContent();
+            } else if (item.getEnclosureType() == "image/jpg" || item.getEnclosureType() == "image/jpeg"){
               media = document.createElement('img');
               media.width = 100;
               media.height = 100;
-
+              media.src = item.getEnclosureContent();
+            } else if (item.getEnclosureType()== "video/x-m4v"){
+              var source;
+              media = document.createElement('video');
+              media.controls="controls";
+              media.width = 400;
+              media.height = 222;
+              source = document.createElement('source');
+              source.src = item.getEnclosureContent();
+              source.type = item.getEnclosureType();
+              media.appendChild(source);
             }
-            media.src = tabItem[i].getElementsByTagName('enclosure')[0].getAttribute('url');
-            tr = document.createElement('tr');
-            td = document.createElement('td');
-            td_2 = document.createElement('td');
-            td_3 = document.createElement('td');
-            tbody = document.createElement('tbody');
-            td_2.innerHTML = (tabItem[i].getElementsByTagName('pubDate')[0]).innerHTML;
-            td.innerHTML = tabItem[i].getElementsByTagName('title')[0].innerHTML;
-            td_3.appendChild(media);
-            tr.appendChild(td_2);
-            tr.appendChild(td);
-            tr.appendChild(td_3);
-            console.log(media);
 
-            tbody.appendChild(tr);
-            tableauHTML.appendChild(tbody);
+            division = document.createElement('div');
+            title = document.createElement('h3');
+            description = document.createElement('p');
+            date = document.createElement('p');
+            hr = document.createElement('hr');
+
+            console.log(item.getDescription());
+
+            title.innerHTML = item.getTitle();
+            date.innerHTML = item.getPublicationDate();
+            description.appendChild = item.getDescription();
+            division.appendChild(title);
+            division.appendChild(date);
+            division.appendChild(description);
+            division.appendChild(media);
+            division.appendChild(hr);
+            containerRssFeed.appendChild(division);
           }
-          console.log(tabItem);
-        },function(Error){
-
         });
+
+      });
     });
   }
 }

@@ -6,10 +6,10 @@
         <form>
           <div class="form-groupe">
             <label for="rssInput">Votre lien rss:</label>
-            <input type="text" class="form-control" name="rssResearch" id="rss_link" value="">
+            <input type="text" class="form-control" name="rssResearch" id="rss_link" placeholder="ex : http://radiofrance-podcast.net/podcast09/rss_11171.xml" value="">
           </div>
           <br>
-          <input type="button" class="btn btn-default" id="sendRssLink" value="pau'd'caster"></input>
+          <button type="button" class="btn btn-default" id="sendRssLink">pau'd'caster</button>
         </form>
         <h3>Notre Selection !</h3>
         <div id="encart-container" class="row">
@@ -17,19 +17,8 @@
         </div>
         </div>
         <div id="partGauche" class="col-md-6">
-          <table class="table table-striped table-hover table_feed" id="tableau">
-            <tr>
-              <td>
-                date
-              </td>
-              <td>
-                nom
-              </td>
-              <td>
-                player
-              </td>
-            </tr>
-          </table>
+          <div id="rssFeed">
+          </div>
         </div>
 
       </div>
