@@ -2,7 +2,6 @@ html,body{
   height: auto;
   margin: 0px;
   width: 100%;
-  overflow: hidden;
   display: block;
   position: absolute;
 }

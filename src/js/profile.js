@@ -25,7 +25,7 @@ function userRss () {
             button.className = "btn btn-default";
             button.innerHTML = "Ouvrir";
 
-            button.addEventListener('click',function () {
+            button.addEventListener('click',function(){
               var modal = document.getElementById("modalBody");
               modal.innerHTML = '';
               if (item.getEnclosureType() == "audio/mpeg") {
