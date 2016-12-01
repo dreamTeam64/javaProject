@@ -21,7 +21,7 @@ function getJSON(name){
 function getXML(url){
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
-    req.open("GET","https://jsonp.afeld.me/?url="+url,true);
+    req.open("GET","https://crossorigin.me/"+url,true);
     req.onerror = function () {
       console.log("erreur de chargement du fichier xml");
     };
