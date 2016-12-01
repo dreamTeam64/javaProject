@@ -18,36 +18,43 @@ function userRss () {
         flux.getItems(function(tabItem){
           console.log(tabItem);
           for (var i = 0; i < tabItem.length; i++) {
-            var media,title,description,division,date,hr;
+            var media,button,title,description,division,date,hr;
             var item = Object.create(Item);
             item.init(tabItem[i]);
-            media = document.createElement('button');
-            media.class = "btn btn-default";
-            media.innerHTML = "Ouvrir";
-            media.url = item.getEnclosureType();
+            button = document.createElement('button');
+            button.className = "btn btn-default";
+            button.innerHTML = "Ouvrir";
 
-            // if (item.getEnclosureType() == "audio/mpeg") {
-            //
-            //   media = document.createElement('AUDIO');
-            //   media.controls="controls";
-            //   media.preload = "false";
-            //   media.src = item.getEnclosureContent();
-            // } else if (item.getEnclosureType() == "image/jpg" || item.getEnclosureType() == "image/jpeg"){
-            //   media = document.createElement('img');
-            //   media.width = 100;
-            //   media.height = 100;
-            //   media.src = item.getEnclosureContent();
-            // } else if (item.getEnclosureType()== "video/x-m4v"){
-            //   var source;
-            //   media = document.createElement('video');
-            //   media.controls="controls";
-            //   media.width = 400;
-            //   media.height = 222;
-            //   source = document.createElement('source');
-            //   source.src = item.getEnclosureContent();
-            //   source.type = item.getEnclosureType();
-            //   media.appendChild(source);
-            // }
+            button.addEventListener('click',function () {
+              var modal = document.getElementById("modalBody");
+              modal.innerHTML = '';
+              if (item.getEnclosureType() == "audio/mpeg") {
+                media = document.createElement('AUDIO');
+                media.controls="controls";
+                media.preload = "false";
+                media.src = item.getEnclosureContent();
+              } else if (item.getEnclosureType() == "image/jpg" || item.getEnclosureType() == "image/jpeg"){
+                media = document.createElement('img');
+                media.width = 100;
+                media.height = 100;
+                media.src = item.getEnclosureContent();
+              } else if (item.getEnclosureType()== "video/x-m4v" || item.getEnclosureType()== "video/mp4"){
+                var source;
+                media = document.createElement('video');
+                media.controls="controls";
+                media.width = 400;
+                media.height = 222;
+                source = document.createElement('source');
+                source.src = item.getEnclosureContent();
+                source.type = item.getEnclosureType();
+                media.appendChild(source);
+              }
+              modalBody.appendChild(media);
+              $('#AlertBox').modal('show');
+              $('#AlertBox').on('hide.bs.modal',function(e){
+                media.pause();
+              });
+            });
 
             division = document.createElement('div');
             title = document.createElement('h3');
@@ -63,7 +70,7 @@ function userRss () {
             division.appendChild(title);
             division.appendChild(date);
             division.appendChild(description);
-            division.appendChild(media);
+            division.appendChild(button);
             division.appendChild(hr);
             containerRssFeed.appendChild(division);
           }
