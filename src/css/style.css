@@ -57,8 +57,8 @@ background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
 }
 
 #rssFeed{
-  height: 420px;
-  overflow: scroll;
+  height: auto;
+  overflow: hidden;
   display: block;
 }
 

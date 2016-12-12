@@ -6,7 +6,7 @@ function userRss () {
 
     console.log(button);
 
-    button.addEventListener("click",function(){
+    button.addEventListener("click",function(e){
       var flux;
       var tabItem;
       var containerRssFeed = document.getElementById("rssFeed");
@@ -17,7 +17,7 @@ function userRss () {
       flux.getVersion(function(version){
         flux.getItems(function(tabItem){
           console.log(tabItem);
-          for (var i = 0; i < tabItem.length; i++) {
+          for (var i = 0; i < 1; i++) {
             var media,button,title,description,division,date,hr;
             var item = Object.create(Item);
             item.init(tabItem[i]);
@@ -75,8 +75,32 @@ function userRss () {
             containerRssFeed.appendChild(division);
           }
         });
-
+        e.stopPropagation();
+        e.preventDefault();
+        return false;
       });
+
     });
   }
+}
+
+function loadFav(){
+  var favDiv,localData;
+
+  localData = JSON.parse(localStorage.getItem("link"));
+  console.log(localData);
+  favDiv = document.getElementById('fav');
+
+  for (var i = 0; i < localData.length; i++) {
+    var link,flux;
+    flux = Object.create(rss);
+    flux.init(localData[i]);
+    flux.getTitleChanel(function(title){
+      link = document.createElement('a');
+      link.innerHTML = title + "<br>";
+      link.href = localData[i];
+      favDiv.appendChild(link);
+    });
+  }
+
 }
