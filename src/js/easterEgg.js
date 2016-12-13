@@ -27,6 +27,9 @@ function displayFun() {
     canvas.style.display = "none";
 
   });
+
+  var img = document.createElement('img');
+  
 }
 
 window.addEventListener("load",function(){

@@ -21,7 +21,7 @@ function getJSON(name){
 function getXML(url){
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
-    req.open("GET","https://crossorigin.me/"+url,true);
+    req.open("GET","http://cors-anywhere.herokuapp.com/"+url,true);
     req.onerror = function () {
       console.log("erreur de chargement du fichier xml");
     };
@@ -45,7 +45,9 @@ function dataHome () {
   encartContainer = document.getElementById('encart-container');
 
   console.log(encartContainer);
-
+  userRss();
+  loadFav();
+  save();
   getJSON("home").then(function(response){
     for (var i = 0; i < response.radio.length; i++) {
       var encart,img,link;
@@ -64,9 +66,7 @@ function dataHome () {
       encart.appendChild(link);
       console.log(encart);
       encartContainer.appendChild(encart);
-      userRss();
-      loadFav();
-      save();
+
     }
   },function(Error){
     console.log("Error");
