@@ -90,17 +90,18 @@ function loadFav(){
   localData = JSON.parse(localStorage.getItem("link"));
   console.log(localData);
   favDiv = document.getElementById('fav');
-
-  for (var i = 0; i < localData.length; i++) {
-    var link,flux;
-    flux = Object.create(rss);
-    flux.init(localData[i]);
-    flux.getTitleChanel(function(title){
-      link = document.createElement('a');
-      link.innerHTML = title + "<br>";
-      link.href = localData[i];
-      favDiv.appendChild(link);
-    });
-  }
+  //if (!localData) {
+    for (var i = 0; i < localData.length; i++) {
+      var link,flux;
+      flux = Object.create(rss);
+      flux.init(localData[i]);
+      flux.getTitleChanel(function(title){
+        link = document.createElement('a');
+        link.innerHTML = title + "<br>";
+        link.href = localData[i];
+        favDiv.appendChild(link);
+      },false);
+    }
+  //}
 
 }
