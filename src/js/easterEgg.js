@@ -1,4 +1,3 @@
-e
 function draw(canvas) {
    var ctx = canvas.getContext("2d");
 
@@ -30,7 +29,7 @@ function displayFun() {
   });
 
   var img = document.createElement('img');
-  
+
 }
 
 window.addEventListener("load",function(){

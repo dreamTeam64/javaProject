@@ -6,7 +6,6 @@ function save() {
     button.addEventListener('click',function (e) {
       if (e.handled !== true) {
         if(!localStorage.getItem("link")){
-          console.log("link n'est pas répértorier");
           localStorage.setItem("link",JSON.stringify([]));
         }else{
           arraySave = JSON.parse(localStorage.getItem("link"));
@@ -25,5 +24,11 @@ function save() {
       e.handled = true;
       e.preventDefault();
     },false);
+  }
+}
+
+function deleteSave(){
+  if (window.location == "#home") {
+    var button = document.getElementById("saveRssLink");
   }
 }
