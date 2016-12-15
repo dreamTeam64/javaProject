@@ -18,7 +18,7 @@ function userRss () {
         flux.getVersion(function(version){
           flux.getItems(function(tabItem){
             console.log(tabItem);
-            for (var i = 0; i < 1; i++) {
+            for (var i = 0; i < 10; i++) {
               var media,button,title,description,division,date,hr;
               var item = Object.create(Item);
               item.init(tabItem[i]);
@@ -90,17 +90,25 @@ function loadFav(){
   localData = JSON.parse(localStorage.getItem("link"));
   console.log(localData);
   favDiv = document.getElementById('fav');
-
-  for (var i = 0; i < localData.length; i++) {
-    var link,flux;
-    flux = Object.create(rss);
-    flux.init(localData[i]);
-    flux.getTitleChanel(function(title){
-      link = document.createElement('a');
-      link.innerHTML = title + "<br>";
-      link.href = localData[i];
-      favDiv.appendChild(link);
-    });
-  }
+  //if (!localData) {
+    for (var i = 0; i < localData.length; i++) {
+      var link,flux,div,del;
+      flux = Object.create(rss);
+      flux.init(localData[i]);
+      console.log("état de la variable i : " + i);
+      flux.getTitleChanel(function(title){
+        del = document.createElement('button');
+        div = document.createElement('div');
+        link = document.createElement('a');
+        del.innerHTML = "del";
+        del.className = "btn btn-default btn-xs";
+        link.innerHTML = title+ " ";
+        link.href = localData[i];
+        div.appendChild(link);
+        div.appendChild(del);
+        favDiv.appendChild(div);
+      });
+    }
+  //}
 
 }

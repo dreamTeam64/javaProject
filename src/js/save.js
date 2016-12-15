@@ -5,22 +5,22 @@ function save() {
     var arraySave;
     button.addEventListener('click',function (e) {
       if (e.handled !== true) {
-        arraySave = JSON.parse(localStorage.getItem("link"));
-        if ((arraySave === null) ||(arraySave === undefined)) {
-          arraySave = [];
-        }
-        if (typeof(Storage) !== "undefined") {
-          for (var i = 0; i < arraySave.length; i++) {
-            if (arraySave[i-1] === arraySave[i]) {
-              arraySave.length = arraySave.length -2;
-            }
+        if(!localStorage.getItem("link")){
+          console.log("link n'est pas répértorier");
+          localStorage.setItem("link",JSON.stringify([]));
+        }else{
+          arraySave = JSON.parse(localStorage.getItem("link"));
+          if ((arraySave === null) ||(arraySave === undefined)) {
+            arraySave = [];
           }
-          arraySave.push(rssLink.value);
-          localStorage.setItem("link",JSON.stringify(arraySave));
-
-        } else {
-          window.alert("no support of storage on your browser");
+          if (typeof(Storage) !== "undefined") {
+            arraySave.push(rssLink.value);
+            localStorage.setItem("link",JSON.stringify(arraySave));
+          } else {
+            window.alert("no support of storage on your browser");
+          }
         }
+
       }
       e.handled = true;
       e.preventDefault();
