@@ -28,7 +28,14 @@ function save() {
 }
 
 function deleteSave(){
-  if (window.location == "#home") {
-    var button = document.getElementById("saveRssLink");
+  if (window.location.hash == "#home") {
+    window.addEventListener("click",function(e){
+      var button = document.getElementById("del");
+      console.log("button: ", e.target);
+      button.addEventListener('click',function(){
+        console.log("coucou");
+        button.removeChild();
+      });
+    });
   }
 }
