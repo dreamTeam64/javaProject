@@ -101,6 +101,7 @@ function loadFav(){
         div = document.createElement('div');
         link = document.createElement('a');
         del.innerHTML = "del";
+        del.id = "del";
         del.className = "btn btn-default btn-xs";
         link.innerHTML = title+ " ";
         link.href = localData[i];

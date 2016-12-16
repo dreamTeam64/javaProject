@@ -48,6 +48,7 @@ function dataHome () {
   userRss();
   loadFav();
   save();
+  deleteSave();
   getJSON("home").then(function(response){
     for (var i = 0; i < response.radio.length; i++) {
       var encart,img,link;
