@@ -31,10 +31,31 @@ function deleteSave(){
   if (window.location.hash == "#home") {
     window.addEventListener("click",function(e){
       var button = document.getElementById("del");
+      var link = button.previousSibling.href;
+      console.log("link: ", link);
       console.log("button: ", e.target);
-      button.addEventListener('click',function(){
-        console.log("coucou");
-        button.removeChild();
+
+
+      button.addEventListener("click",function(){
+        var i =0;
+        var arraySave = JSON.parse(localStorage.getItem("link"));
+        console.log(arraySave);
+        console.log(arraySave.length);
+        console.log(arraySave[i]);
+        if (link == arraySave[i]) {
+          console.log("test");
+        }
+        if (e.handled !== true) {
+          while ((i <arraySave.length) || (arraySave[i] != link)) {
+            i++;
+          }
+          if (arraySave==link) {
+            for (var j = i; j < localStorage.length; j++) {
+              arraySave[j] = arraySave[j+1];
+            }
+          }
+        }
+        // button.removeChild();
       });
     });
   }
