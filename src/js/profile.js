@@ -88,10 +88,10 @@ function loadFav(){
   var favDiv,localData;
 
   localData = JSON.parse(localStorage.getItem("link"));
-  if(localData !== null){
-    console.log(localData);
-    favDiv = document.getElementById('fav');
-    for (var i = 0; i < localData.length; i++) {
+  console.log(localData);
+  favDiv = document.getElementById('fav');
+  //if (!localData) {
+    for (let i = 0; i < localData.length; i++) {
       var link,flux,div,del;
       flux = Object.create(rss);
       flux.init(localData[i]);
@@ -109,7 +109,6 @@ function loadFav(){
         favDiv.appendChild(div);
       });
     }
-  }
-
+  //}
 
 }
