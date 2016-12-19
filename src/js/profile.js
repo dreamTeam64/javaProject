@@ -99,7 +99,7 @@ function loadFav(){
   if (localData !== null) {
     for (let i = 0; i < localData.length; i++) {
       var link,flux,div,del;
-      pushFlux(localData[i]);
+      //pushFlux(localData[i]);
       flux = Object.create(rss);
       flux.init(localData[i]);
       console.log("état de la variable i : " + i);
@@ -115,6 +115,10 @@ function loadFav(){
         div.appendChild(link);
         div.appendChild(del);
         favDiv.appendChild(div);
+        link.addEventListener("click",function(){
+          console.log(localData[i]);
+          pushFlux(localData[i]);
+        });
       });
     }
   } else {
