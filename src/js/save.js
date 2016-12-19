@@ -50,7 +50,6 @@ function deleteSave(){
           arraySave = JSON.stringify(arraySave);
           localStorage.removeItem("link");
           localStorage.setItem("link",arraySave);
-
         }
       }
     });
