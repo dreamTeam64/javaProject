@@ -41,6 +41,12 @@ function getXML(url){
 function dataHome () {
   var dataHome;
   var encartContainer;
+  var viderFlux;
+  var rssFeed;
+
+  viderFlux = document.getElementById('viderFlux');
+  rssFeed = document.getElementById('rssFeed');
+  viderFlux.addEventListener("click",function(){rssFeed.innerHTML = "";});
 
   encartContainer = document.getElementById('encart-container');
 

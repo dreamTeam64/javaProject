@@ -6,16 +6,6 @@
       "img":"https://lh3.googleusercontent.com/-BKjPa6KhWks/AAAAAAAAAAI/AAAAAAAAAI4/MziciOJF59s/s0-c-k-no-ns/photo.jpg"
     },
     {
-      "name": "NRJ",
-      "inter_link": "?radio=Nrj#radio",
-      "img":"http://www.nrj.fr/img/logo-nrj.svg"
-    },
-    {
-      "name": "Europe 1",
-      "inter_link": "?radio=Europe1#radio",
-      "img":"http://cdn1-europe1.new2.ladmedia.fr/bundles/europe1front/images/logo_europe1.png"
-    },
-    {
       "name": "RTL",
       "inter_link": "?radio=RTL#radio",
       "img":"http://coulissesmedias.com/wp-content/uploads/RTL-LOGO.jpg"
