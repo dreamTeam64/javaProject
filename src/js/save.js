@@ -28,15 +28,14 @@ function save() {
 }
 
 function deleteSave(){
-  if (window.location.hash == "#home") {
-    window.addEventListener("click",function(e){
-      var button = document.getElementById("del");
-      var link = button.previousSibling.href;
-      console.log("link: ", link);
-      console.log("button: ", e.target);
+  if (window.location.hash == "#home") { //verification qu'on est bien sur la page HOME
+    window.addEventListener("click",function(e){ //ecoute de la page
+      if (e.target.name === "del") { //si le clique vise un bouton del on exe le code
+        var button = e.target;
+        var link = button.previousSibling.href;
+        console.log("link: ", link);
+        console.log("button: ", e.target);
 
-
-      button.addEventListener("click",function(e){
         var i =0;
         var arraySave = JSON.parse(localStorage.getItem("link"));
         var index;
@@ -49,9 +48,8 @@ function deleteSave(){
           }
           console.log("après: ", arraySave);
           arraySave = JSON.stringify(arraySave);
-
         }
-      });
+      }
     });
   }
 }
