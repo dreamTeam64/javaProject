@@ -49,8 +49,8 @@ function deleteSave(){
           console.log("après: ", arraySave);
           arraySave = JSON.stringify(arraySave);
           localStorage.removeItem("link");
-          localStorage.setItem("link",JSON.stringify(arraySave));
-          
+          localStorage.setItem("link",arraySave);
+
         }
       }
     });
