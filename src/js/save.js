@@ -23,7 +23,9 @@ function save() {
       }
       e.handled = true;
       e.preventDefault();
+      window.location.reload();
     },false);
+
   }
 }
 
@@ -52,6 +54,7 @@ function deleteSave(){
           localStorage.setItem("link",arraySave);
 
         }
+        window.location.reload();
       }
     });
   }
