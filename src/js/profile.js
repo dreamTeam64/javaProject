@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+/*jshint loopfunc: true */
 function pushFlux(link){
   var flux;
   var tabItem;
@@ -94,6 +96,7 @@ function loadFav(){
   localData = JSON.parse(localStorage.getItem("link"));
   console.log(localData);
   favDiv = document.getElementById('fav');
+
     for (let i = 0; i < localData.length; i++) {
       var link,flux,div,del;
       pushFlux(localData[i]);
