@@ -46,7 +46,10 @@ function pushFlux(link){
           modalBody.appendChild(media);
           $('#AlertBox').modal('show');
           $('#AlertBox').on('hide.bs.modal',function(e){
-            media.pause();
+            console.log(media.nodeName);
+            if (media.nodeName === "AUDIO" || media.nodeName === "video") {
+              media.pause();
+            }
           });
         });
 
