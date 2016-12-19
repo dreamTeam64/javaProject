@@ -39,27 +39,18 @@ function deleteSave(){
       button.addEventListener("click",function(e){
         var i =0;
         var arraySave = JSON.parse(localStorage.getItem("link"));
-        console.log("i: ",i);
-        console.log("arraySave.length: ", arraySave.length);
-        console.log("arraySave[",i,"]",arraySave[i]);
-        console.log("element recherché: ",link);
+        var index;
         if (e.handled !== true) {
-          while ((i > arraySave.length) && (arraySave[i] != link)) {
-            console.log("i: ",i);
-            console.log("arraySave.length: ", arraySave.length);
-            console.log("arraySave[",i,"]",arraySave[i]);
-            console.log("element recherché: ",link);
+          console.log("avant: ", arraySave);
+          index = arraySave.indexOf(link);
+          console.log("index: ",index);
+          if (index>-1) {
+            arraySave.splice(index,1);
+          }
+          console.log("après: ", arraySave);
+          arraySave = JSON.stringify(arraySave);
 
-            i++;
-          }
-          if (arraySave[i]==link) {
-            console.log("test");
-            for (var j = i; j <= localStorage.length; j++) {
-              arraySave[j] = arraySave[j+1];
-            }
-          }
         }
-        // button.removeChild();
       });
     });
   }
