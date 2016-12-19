@@ -96,7 +96,7 @@ function loadFav(){
   localData = JSON.parse(localStorage.getItem("link"));
   console.log(localData);
   favDiv = document.getElementById('fav');
-
+  if (localData !== null) {
     for (let i = 0; i < localData.length; i++) {
       var link,flux,div,del;
       pushFlux(localData[i]);
@@ -117,4 +117,7 @@ function loadFav(){
         favDiv.appendChild(div);
       });
     }
+  } else {
+    localStorage.setItem("link",JSON.stringify([]));
+  }
 }
