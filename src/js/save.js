@@ -36,21 +36,25 @@ function deleteSave(){
       console.log("button: ", e.target);
 
 
-      button.addEventListener("click",function(){
+      button.addEventListener("click",function(e){
         var i =0;
         var arraySave = JSON.parse(localStorage.getItem("link"));
-        console.log(arraySave);
-        console.log(arraySave.length);
-        console.log(arraySave[i]);
-        if (link == arraySave[i]) {
-          console.log("test");
-        }
+        console.log("i: ",i);
+        console.log("arraySave.length: ", arraySave.length);
+        console.log("arraySave[",i,"]",arraySave[i]);
+        console.log("element recherché: ",link);
         if (e.handled !== true) {
-          while ((i <arraySave.length) || (arraySave[i] != link)) {
+          while ((i > arraySave.length) && (arraySave[i] != link)) {
+            console.log("i: ",i);
+            console.log("arraySave.length: ", arraySave.length);
+            console.log("arraySave[",i,"]",arraySave[i]);
+            console.log("element recherché: ",link);
+
             i++;
           }
-          if (arraySave==link) {
-            for (var j = i; j < localStorage.length; j++) {
+          if (arraySave[i]==link) {
+            console.log("test");
+            for (var j = i; j <= localStorage.length; j++) {
               arraySave[j] = arraySave[j+1];
             }
           }
