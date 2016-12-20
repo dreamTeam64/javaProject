@@ -26,6 +26,8 @@ function pushFlux(link){
   var flux;
   var tabItem;
   var containerRssFeed = document.getElementById("rssFeed");
+  var loadingGif = document.getElementById("loading");
+  loadingGif.style="display: block";
   console.log("t'essaie d'introduire le flux : " + link);
   flux = Object.create(rss);
   console.log(flux);
@@ -104,6 +106,7 @@ function pushFlux(link){
       }
     });
   });
+  loadingGif.style="display: none";
 }
 
 function userRss () {
