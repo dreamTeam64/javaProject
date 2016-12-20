@@ -16,6 +16,11 @@ html,body{
   background-image: linear-gradient(to bottom right, #E1F5FE 0%, #3498db 100%);
 }
 
+.btn-default:hover {
+   cursor: alias;
+   /*C'est juste un test tkt*/
+}
+
 span:hover {
   cursor: default;
   border-bottom: 1px solid;
