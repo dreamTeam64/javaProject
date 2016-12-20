@@ -13,6 +13,8 @@ function triFluxRss(){
   var elt;
 
   elt = array[0];
+  console.log(elt);
+  console.log(elt.getElementsByName('datePodcast')[0]);
   //console.log((elt.getElementById('datePodcast')).innerHTML);
   for (i = 0; i < (array.length)-1; i++) {
     min = array[i];
@@ -85,7 +87,7 @@ function pushFlux(link){
         title = document.createElement('h3');
         description = document.createElement('p');
         date = document.createElement('p');
-        date.id = "datePodcast";
+        date.name = "datePodcast";
         hr = document.createElement('hr');
 
         console.log(item.getDescription());
