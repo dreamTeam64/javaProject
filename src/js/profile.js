@@ -110,13 +110,14 @@ function pushFlux(link){
 
 function userRss () {
   if (window.location.hash == "#home") {
-    var link,button;
+    var link,button, rssFeed;
     link = document.getElementById('rss_link');
     button = document.getElementById('sendRssLink');
-
+    rssFeed = document.getElementById('rssFeed');
     console.log(button);
 
     button.addEventListener("click",function(e){
+      rssFeed.innerHTML = "";
       if(e.handled !== true){
         pushFlux(link.value);
       }
@@ -127,8 +128,9 @@ function userRss () {
 }
 
 function loadFav(){
-  var favDiv,localData;
+  var favDiv,localData, rssFeed;
 
+  rssFeed = document.getElementById('rssFeed');
   localData = JSON.parse(localStorage.getItem("link"));
   console.log(localData);
   favDiv = document.getElementById('fav');
@@ -152,6 +154,7 @@ function loadFav(){
         div.appendChild(del);
         favDiv.appendChild(div);
         link.addEventListener("click",function(){
+          rssFeed.innerHTML = "";
           console.log(localData[i]);
           pushFlux(localData[i]);
         });
