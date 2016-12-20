@@ -92,6 +92,13 @@ span:hover {
   display: block;
 }
 
+#loading{
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
 footer{
   background-color: #29b6f6;
   background-image: linear-gradient(to top left, #E1F5FE 0%, #3498db 100%);
