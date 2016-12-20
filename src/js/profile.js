@@ -20,7 +20,7 @@ function pushFlux(link){
         button.innerHTML = "Ouvrir";
 
         button.addEventListener('click',function(){
-          this.className = "btn btn-info";
+          this.className = "btn btn-outline-secondary";
           var modal = document.getElementById("modalBody");
           modal.innerHTML = '';
           if (item.getEnclosureType() == "audio/mpeg") {
