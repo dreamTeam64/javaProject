@@ -1,5 +1,27 @@
 /*jshint esversion: 6 */
 /*jshint loopfunc: true */
+
+function triFluxRss(){
+  var rssFeed = document.getElementById('rssFeed');
+  var array = [];
+  array = rssFeed.getElementsByTagName('div');
+  console.log(array);
+
+  var min;
+  var i,j;
+  var date;
+  var elt;
+
+  elt = array[0];
+  //console.log((elt.getElementById('datePodcast')).innerHTML);
+  for (i = 0; i < (array.length)-1; i++) {
+    min = array[i];
+    for (j = i+1; j < array.length; j++) {
+
+    }
+  }
+}
+
 function pushFlux(link){
   var flux;
   var tabItem;
@@ -63,6 +85,7 @@ function pushFlux(link){
         title = document.createElement('h3');
         description = document.createElement('p');
         date = document.createElement('p');
+        date.id = "datePodcast";
         hr = document.createElement('hr');
 
         console.log(item.getDescription());
@@ -77,6 +100,7 @@ function pushFlux(link){
         division.appendChild(button);
         division.appendChild(hr);
         containerRssFeed.appendChild(division);
+        triFluxRss();
       }
     });
   });
