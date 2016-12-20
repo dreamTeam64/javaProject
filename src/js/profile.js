@@ -11,7 +11,7 @@ function pushFlux(link){
   flux.getVersion(function(version){
     flux.getItems(function(tabItem){
       console.log(tabItem);
-      for (var i = 0; i < 10; i++) {
+      for (let i = 0; i < 10; i++) {
         var media,button,title,description,division,date,hr;
         var item = Object.create(Item);
         item.init(tabItem[i]);
@@ -20,6 +20,11 @@ function pushFlux(link){
         button.innerHTML = "Ouvrir";
 
         button.addEventListener('click',function(){
+          var item = Object.create(Item);
+          item.init(tabItem[i]);
+          document.getElementById('modalTitle').innerHTML = item.getTitle();
+          document.getElementById('modalLink').href = item.getLink();
+          document.getElementById('modalDesc').innerHTML = item.getDescription().innerHTML;
           this.className = "btn btn-outline-secondary ";
           var modal = document.getElementById("modalBody");
           modal.innerHTML = '';
@@ -63,6 +68,7 @@ function pushFlux(link){
         console.log(item.getDescription());
 
         title.innerHTML = item.getTitle();
+
         date.innerHTML = item.getPublicationDate();
         description.appendChild = item.getDescription();
         division.appendChild(title);

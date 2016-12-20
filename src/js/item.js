@@ -16,5 +16,8 @@ var Item = {
   },
   getDescription: function(){
     return (this.item).getElementsByTagName('description')[0];
+  },
+  getLink: function(){
+    return (this.item).getElementsByTagName('link')[0].innerHTML;
   }
 };
