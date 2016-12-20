@@ -109,7 +109,7 @@ function loadFav(){
   if (localData !== null) {
     for (let i = 0; i < localData.length; i++) {
       var link,flux,div,del;
-      //pushFlux(localData[i]);
+      pushFlux(localData[i]);
       flux = Object.create(rss);
       flux.init(localData[i]);
       console.log("état de la variable i : " + i);
