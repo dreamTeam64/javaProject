@@ -21,16 +21,20 @@ function getJSON(name){
 function getXML(url){
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
+    var loadingGif = document.getElementById("loading");
+    loadingGif.style="display: block";
     req.open("GET","http://cors-anywhere.herokuapp.com/"+url,true);
     req.onerror = function () {
       console.log("erreur de chargement du fichier xml");
     };
     req.onload = function(){
       if(req.status === 200) {
+        loadingGif.style="display: none";
         var data = req.responseXML;
         console.log(data);
         resolve(data);
       } else {
+        loadingGif.style="display: none";
         reject(Error("Error"+ req.status));
       }
     };

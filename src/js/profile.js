@@ -14,7 +14,7 @@ function triFluxRss(){
 
   elt = array[0];
   console.log(elt);
-  console.log(elt.getElementsByName('datePodcast')[0]);
+  //console.log(elt.getElementsByName('datePodcast')[0]);
   //console.log((elt.getElementById('datePodcast')).innerHTML);
   for (i = 0; i < (array.length)-1; i++) {
     min = array[i];
@@ -28,8 +28,6 @@ function pushFlux(link){
   var flux;
   var tabItem;
   var containerRssFeed = document.getElementById("rssFeed");
-  var loadingGif = document.getElementById("loading");
-  loadingGif.style="display: block";
   console.log("t'essaie d'introduire le flux : " + link);
   flux = Object.create(rss);
   console.log(flux);
@@ -108,7 +106,6 @@ function pushFlux(link){
       }
     });
   });
-  loadingGif.style="display: none";
 }
 
 function userRss () {
