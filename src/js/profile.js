@@ -4,23 +4,38 @@
 function triFluxRss(){
   var rssFeed = document.getElementById('rssFeed');
   var array = [];
-  array = rssFeed.getElementsByTagName('div');
+  array = Array.from(rssFeed.getElementsByTagName('div'));
   console.log(array);
 
   var min;
   var i,j;
   var date;
   var elt;
+  var aux;
 
-  elt = array[0];
-  console.log(elt);
-  //console.log(elt.getElementsByName('datePodcast')[0]);
-  //console.log((elt.getElementById('datePodcast')).innerHTML);
   for (i = 0; i < (array.length)-1; i++) {
-    min = array[i];
+    var date1 = new Date(array[i].querySelectorAll(".datePodcast")[0].innerText);
+    console.log(date1);
+    min = i;
     for (j = i+1; j < array.length; j++) {
-
+      var date2 = new Date(array[j].querySelectorAll(".datePodcast")[0].innerText);
+      console.log("compare entre " + date1 + " et " + date2 + " est " + (date1 < date2));
+      if (date2 > date1) {
+        min = j;
+      }
     }
+    if (min !== i) {
+      console.log("permutation");
+      aux = array[min];
+      array[min] = array[i];
+      array[i] = aux;
+    }
+  }
+  console.log(array);
+  rssFeed.innerHTML = "";
+  for (i = 0; i < array.length; i++) {
+    rssFeed.appendChild(array[i]);
+    //console.log(array[i].querySelectorAll(".datePodcast")[0].innerText);
   }
 }
 
@@ -87,7 +102,7 @@ function pushFlux(link){
         title = document.createElement('h3');
         description = document.createElement('p');
         date = document.createElement('p');
-        date.name = "datePodcast";
+        date.className = "datePodcast";
         hr = document.createElement('hr');
 
         console.log(item.getDescription());
